@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div>
       <NavigationBar></NavigationBar>
-      <div className="h-[calc(100vh-184px)]">
+      <div className="">
         <Outlet></Outlet>
       </div>
       <Footer></Footer>
