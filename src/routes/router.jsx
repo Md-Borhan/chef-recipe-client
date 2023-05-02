@@ -4,6 +4,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import MainPage from "../pages/Home/MainPage";
 import ChefRecipes from "../pages/ChefRecipes/ChefRecipes";
+import Loader from "../pages/loader/Loader";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/loader",
+        element: <Loader></Loader>,
       },
       {
         path: "/",
