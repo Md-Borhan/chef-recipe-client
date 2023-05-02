@@ -21,10 +21,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <MainPage></MainPage>,
+        loader: () =>
+          fetch("https://assignment-10-server-md-borhan.vercel.app/slider"),
       },
       {
-        path: "/recipes",
+        path: "/recipes/:id",
         element: <ChefRecipes></ChefRecipes>,
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-10-server-md-borhan.vercel.app/recipes/${params.id}`
+          ),
       },
     ],
   },

@@ -9,19 +9,11 @@ import { Keyboard, Pagination } from "swiper";
 import chefClassIcon from "../../assets/chef-class-icon.png";
 import achievementImg from "../../assets/achievement-img.jpg";
 import { FaAward, FaAngellist, FaPiedPiperAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const MainPage = () => {
-  const [sliderData, setSliderData] = useState([]);
+  const sliderData = useLoaderData();
 
-  useEffect(() => {
-    const loadData = async () => {
-      const res = await fetch("http://localhost:3000/slider");
-      const data = await res.json();
-      setSliderData(data);
-    };
-    loadData();
-  }, []);
   return (
     <>
       {/* Banner Section */}
@@ -102,7 +94,7 @@ const MainPage = () => {
                   </p>
                 </div>
                 <div className="card-actions">
-                  <Link to="/recipes" className="w-full">
+                  <Link to={`/recipes/${sd.id}`} className="w-full">
                     <button className="btn w-full btn-primary bg-[#FB834A] mt-3 border-[#FB834A] hover:bg-[#fb824ad0] hover:border-[#FB834A]">
                       View Recipes Button
                     </button>
@@ -196,7 +188,7 @@ const MainPage = () => {
                     alt="Chef img"
                   />
                 </figure>
-                <h2 className=" mb-0 absolute bottom-0 w-full text-white text pl-4 py-3 bg-[rgba(251,130,74,0.85)]">
+                <h2 className=" mb-0 absolute bottom-0 w-full text-white text-xl pl-4 py-3 bg-[rgba(251,130,74,0.85)]">
                   Mr. {sd?.chef_name}
                 </h2>
                 <img
