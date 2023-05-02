@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import { AuthContext } from "../../provider/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
 
 const NavigationBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div className="flex items-center justify-between bg-slate-900 py-4 shadow-lg px-5 md:px-10 lg:px-16 xl:px-20">
       <div>
@@ -21,10 +32,23 @@ const NavigationBar = () => {
           <Link>Blog</Link>
         </li>
         <li className="text-[#FB834A] font-medium">
-          <Link to="/login">Login</Link>
+          {user ? (
+            <Link onClick={handleLogout}>Logout</Link>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
         </li>
         <li className="text-[#FB834A] font-medium">
-          <Link>User Profile</Link>
+          <Link>
+            {user && (
+              <img
+                title={user?.displayName}
+                className="h-16 w-16 rounded-full border-[#FB834A] border"
+                src={user?.photoURL}
+                alt=" User Img 👤"
+              />
+            )}
+          </Link>
         </li>
       </ul>
     </div>
