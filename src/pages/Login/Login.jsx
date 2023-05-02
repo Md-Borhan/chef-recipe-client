@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
-  const [errorText, setErrorText] = useState("");
-  const [successText, setSuccessText] = useState("");
-  setErrorText("");
-  setSuccessText("");
+  // const { createUserWithEmail } = useContext(AuthContext);
+  // const [errorText, setErrorText] = useState("");
+  // const [successText, setSuccessText] = useState("");
+  // setErrorText("");
+  // setSuccessText("");
   const handleForm = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    // createUserWithEmail(email, password).then((result) => {
+    //   const loggedUser = result.user;
+    //   console.log(loggedUser);
+    //   setSuccessText("User ")
+    // });
   };
   return (
     <div className="w-1/3 mx-auto bg-gray-200  my-5 rounded-lg shadow-blue-100 shadow-md">
