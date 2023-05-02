@@ -1,9 +1,6 @@
+* {
+  font-family: "Signika Negative", sans-serif;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;900&display=swap");
-
-* {
-  font-family: "Noto Sans", sans-serif;
-}
