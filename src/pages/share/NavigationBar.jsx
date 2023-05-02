@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { AuthContext } from "../../provider/AuthProvider";
-import { FaUserCircle } from "react-icons/fa";
+import ActiveLink from "../ActiveLink/ActiveLink";
 
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -26,10 +26,10 @@ const NavigationBar = () => {
       </div>
       <ul className="flex items-center gap-7">
         <li className="text-[#FB834A] font-medium">
-          <Link to="/">Home</Link>
+          <ActiveLink to="/">Home</ActiveLink>
         </li>
         <li className="text-[#FB834A] font-medium">
-          <Link>Blog</Link>
+          <ActiveLink to="/blog">Blog</ActiveLink>
         </li>
         <li className="text-[#FB834A] font-medium">
           {user ? (
