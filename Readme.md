@@ -1,4 +1,4 @@
-# Live Link Hosted in Netlify -> [Kruton.](https://assignment-10-e1cde.web.app/)
+# Live Link -> [Kruton.](https://assignment-10-e1cde.web.app/)
 
 - **I Have 4 Nav_Items Inside The Heder Tag.1st Is Header 2nd Is Blog 3rd Is Login.If You Login You See Logout Otherwise You See Login**
 - **Header And Footer Tag Is On Every Page.**
