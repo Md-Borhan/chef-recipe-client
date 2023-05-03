@@ -78,8 +78,8 @@ const MainPage = () => {
               key={sd?.id}
               className="card border border-[#fb824a4f] card-compact w-full bg-base-100 shadow-xl"
             >
-              <div>
-                <figure className="h-full  ">
+              <div className="h-full ">
+                <figure>
                   <LazyLoadImage
                     className="rounded-t-2xl"
                     src={sd?.chef_picture}
