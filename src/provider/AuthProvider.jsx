@@ -16,21 +16,25 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loader, setLoader] = useState(true);
   const createUserWithEmail = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const loginWithEmail = (email, password) => {
+    setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const googleProvider = new GoogleAuthProvider();
   const loginWithGoogle = () => {
+    setLoader(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   const githubProvider = new GithubAuthProvider();
   const loginWithGithub = () => {
+    setLoader(true);
     return signInWithPopup(auth, githubProvider);
   };
 
@@ -47,6 +51,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setLoader(false);
       setUser(currentUser);
     });
     return () => {
@@ -62,6 +67,7 @@ const AuthProvider = ({ children }) => {
     updateUserProfile,
     user,
     logOut,
+    loader,
   };
 
   return (

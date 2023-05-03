@@ -6,7 +6,6 @@ import ActiveLink from "../ActiveLink/ActiveLink";
 
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
   const handleLogout = () => {
     logOut()
       .then(() => {})
@@ -15,7 +14,7 @@ const NavigationBar = () => {
       });
   };
   return (
-    <div className="flex items-center justify-between bg-slate-900 py-4 shadow-lg px-5 md:px-10 lg:px-16 xl:px-20">
+    <nav className="flex items-center justify-between bg-slate-900 py-4 shadow-lg px-5 md:px-10 lg:px-16 xl:px-20">
       <div>
         <Link to="/" className="flex items-center">
           <img className="w-14 h-14" src={logo} alt="Logo" />
@@ -33,25 +32,23 @@ const NavigationBar = () => {
         </li>
         <li className="text-[#FB834A] text-lg font-medium">
           {user ? (
-            <ActiveLink onClick={handleLogout}>Logout</ActiveLink>
+            <Link onClick={handleLogout}>Logout</Link>
           ) : (
-            <ActiveLink to="/login">Login</ActiveLink>
+            <Link to="/login">Login</Link>
           )}
         </li>
         <li className="text-[#FB834A] font-medium">
-          <ActiveLink>
-            {user && (
-              <img
-                title={user?.displayName}
-                className="h-16 w-16 rounded-full shadow-blue-200 shadow-md border-[#FB834A] border"
-                src={user?.photoURL}
-                alt=" User Img 👤"
-              />
-            )}
-          </ActiveLink>
+          {user && (
+            <img
+              title={user?.displayName}
+              className="h-16 w-16 rounded-full shadow-blue-200 shadow-md border-[#FB834A] border"
+              src={user?.photoURL}
+              alt=" User Img 👤"
+            />
+          )}
         </li>
       </ul>
-    </div>
+    </nav>
   );
 };
 
