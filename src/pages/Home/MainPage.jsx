@@ -33,19 +33,21 @@ const MainPage = () => {
         pagination={{
           clickable: true,
         }}
-        modules={[Keyboard, Pagination, Autoplay]}
+        modules={[Keyboard, Pagination]}
         className="mySwiper"
       >
         {sliderData?.map((sd) => (
           <SwiperSlide className="" key={sd?.id}>
-            <section className="grid grid-cols-3">
-              <div className="px-4 flex flex-col justify-center bg-red-100">
-                <h2 className="text-7xl text-black tracking-tighter font-bold">
+            <section className="grid lg:grid-cols-2 xl:grid-cols-3">
+              <div className="px-4 py-10 lg:py-0 flex flex-col justify-center bg-red-100">
+                <h2 className="text-4xl sm:text-5xl md:text-7xl text-black tracking-tighter font-bold">
                   {sd?.slider_title}
                 </h2>
                 <p className="text-xl mt-1 text-[#FB834A]">{sd?.slider_desc}</p>
               </div>
-              <img className="col-span-2" src={sd?.slider_img} alt="" />
+              <div className="sliderImg col-span-2">
+                <img src={sd?.slider_img} alt="" />
+              </div>
             </section>
           </SwiperSlide>
         ))}
@@ -54,17 +56,17 @@ const MainPage = () => {
       {/* Chef Section */}
       <section className="my-14">
         <div>
-          <h2 className="text-center text-7xl text-black tracking-tighter font-bold">
+          <h2 className="text-center text-4xl sm:text-5xl lg:text-7xl text-black tracking-tighter font-bold">
             Our Chef
           </h2>
-          <p className="text-center w-1/2 mx-auto mb-8">
+          <p className="text-center px-4 xl:w-1/2 mx-auto mb-8">
             A chef is a culinary professional who specializes in the preparation
             of food. They are responsible for managing and directing the kitchen
             staff, creating menus, designing recipes, sourcing ingredients, and
             ensuring the quality and presentation of the dishes served.{" "}
           </p>
         </div>
-        <div className="grid grid-cols-3 w-4/5 mx-auto gap-5">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 w-4/5 mx-auto gap-5">
           {sliderData?.map((sd) => (
             <div
               key={sd?.id}
@@ -72,19 +74,19 @@ const MainPage = () => {
             >
               <figure>
                 <img
-                  className="w-96 h-60"
+                  className="w-full h-60"
                   src={sd?.chef_picture}
                   alt="Chef img"
                 />
               </figure>
               <div className="card-body">
                 <h2 className="card-title">Mr. {sd?.chef_name}</h2>
-                <div className="flex border py-2 items-center justify-center ">
-                  <p className="flex flex-col border-r items-center">
+                <div className="flex flex-col gap-3 sm:gap-0 sm:flex-row border py-2 items-center justify-center ">
+                  <p className="flex flex-col border-b sm:border-b-0 sm:border-r items-center">
                     <span>Years of experience: </span>
                     <span>{sd?.years_of_experience}</span>
                   </p>
-                  <p className="flex flex-col border-r items-center">
+                  <p className="flex flex-col border-b sm:border-b-0 sm:border-r items-center">
                     <span>Recipes number: </span>
                     <span>{sd?.number_of_recipes}</span>
                   </p>
@@ -107,13 +109,19 @@ const MainPage = () => {
       </section>
 
       {/* Achievement Section */}
-      <section className="my-10">
-        <div className="grid grid-cols-2 items-center gap-8">
+      <section className="my-10 px-5 md:px-0">
+        <div className="text-center  lg:hidden">
+          <p className="text-[#FB834A]">OUR ACHIEVEMENTS</p>
+          <h2 className=" my-4 text-4xl sm:text-5xl text-black tracking-tighter font-bold">
+            Hello, Welcome to Kruton!
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-2 items-center gap-8">
           <div>
             <img src={achievementImg} alt="Recipe Maker Img" />
           </div>
           <div className="pr-5">
-            <div className="">
+            <div className="hidden lg:block">
               <p className="text-[#FB834A]">OUR ACHIEVEMENTS</p>
               <h2 className=" my-4 text-5xl text-black tracking-tighter font-bold">
                 Hello, Welcome to Kruton!
@@ -166,15 +174,15 @@ const MainPage = () => {
       </section>
 
       {/* Chef Class Section */}
-      <section className="my-10">
-        <div className=" text-center w-1/2 mx-auto">
+      <section className="my-10 px-0 sm:px-5 md:px-0">
+        <div className=" text-center xl:w-1/2 mx-auto">
           <p className="text-[#FB834A]">ROUND THE GLOBE</p>
-          <h2 className="text-center my-4 text-7xl text-black tracking-tighter font-bold">
+          <h2 className="text-center my-4 text-4xl sm:text-5xl lg:text-7xl text-black tracking-tighter font-bold">
             Our Cooking Classes
           </h2>
           <img className="mx-auto mb-8" src={chefClassIcon} alt="" />
         </div>
-        <div className="grid grid-cols-3 w-4/5 mx-auto gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 w-4/5 mx-auto gap-5">
           {sliderData.slice(3)?.map((sd) => (
             <div
               key={sd?.id}
@@ -183,7 +191,7 @@ const MainPage = () => {
               <div className="relative ">
                 <figure>
                   <img
-                    className="w-96 h-60"
+                    className="w-full h-60"
                     src={sd?.chef_class_picture}
                     alt="Chef img"
                   />

@@ -14,7 +14,7 @@ const NavigationBar = () => {
       });
   };
   return (
-    <nav className="flex items-center justify-between bg-slate-900 py-4 shadow-lg px-5 md:px-10 lg:px-16 xl:px-20">
+    <nav className="flex flex-col sm:flex-row items-center justify-center sm:justify-between bg-slate-900 py-4 shadow-lg px-5 md:px-10 lg:px-16 xl:px-20">
       <div>
         <Link to="/" className="flex items-center">
           <img className="w-14 h-14" src={logo} alt="Logo" />
@@ -23,7 +23,7 @@ const NavigationBar = () => {
           </span>
         </Link>
       </div>
-      <ul className="flex items-center gap-7">
+      <ul className="flex items-center mt-4 sm:mt-0 gap-7">
         <li className="text-[#FB834A] text-lg font-medium">
           <ActiveLink to="/">Home</ActiveLink>
         </li>

@@ -24,14 +24,14 @@ const ChefRecipes = () => {
   return (
     <>
       <section className="recipesBanner">
-        <div className="w-4/5 mx-auto">
+        <div className="w-full md:w-4/5 mx-auto">
           <div className="flex flex-col items-center py-10 justify-center">
             <img
               className="w-64 h-64 mb-5 rounded-full  shadow-blue-300 shadow-md"
               src={chef_picture}
               alt=""
             />
-            <div className="w-1/2 mx-auto text-center">
+            <div className="w-full lg:w-3/5 xl:w-3/5 2xl:w-1/2 px-3 lg:px-0 mx-auto text-center">
               <p className="text-5xl font-bold text-white">I'am {chef_name}</p>
               <p className="text-lg mt-2 text-white">{bio}</p>
               <div className="text-center flex gap-6 justify-center mt-2 text-white">
@@ -49,14 +49,18 @@ const ChefRecipes = () => {
       </section>
 
       {/* Recipes Card */}
-      <div className="grid grid-cols-3 w-4/5 mx-auto gap-5 my-14">
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 w-full px-3 lg:px-0 lg:w-4/5 mx-auto gap-5 my-14">
         {recipe.map((sr) => (
           <div
             key={sr?.id}
             className="card border card-compact w-full bg-base-100 shadow-xl"
           >
             <figure>
-              <img className="w-96 h-60" src={sr?.recipe_img} alt="Chef img" />
+              <img
+                className="w-full h-60"
+                src={sr?.recipe_img}
+                alt="Chef img"
+              />
             </figure>
             <div className="card-body">
               <h2 className="card-title text-2xl font-bold text-black">
