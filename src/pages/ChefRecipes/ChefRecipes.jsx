@@ -32,7 +32,7 @@ const ChefRecipes = () => {
           <div className="flex flex-col items-center py-10 justify-center">
             <div>
               <LazyLoadImage
-                className="w-64 h-64 mb-5 rounded-full  shadow-blue-300 shadow-md"
+                className="w-64 h-64 mb-5 border-3 border-[#fb824ab2] rounded-full  shadow-blue-300 shadow-md"
                 src={chef_picture}
                 effect="blur"
                 alt="Chef Picture"
@@ -60,11 +60,11 @@ const ChefRecipes = () => {
         {recipe.map((sr) => (
           <div
             key={sr?.id}
-            className="card border card-compact w-full bg-base-100 shadow-xl"
+            className="card  border border-[#fb824a4f] card-compact w-full bg-base-100 shadow-xl"
           >
             <figure className="h-60">
               <LazyLoadImage
-                className="w-full"
+                className="w-full "
                 src={sr?.recipe_img}
                 effect="blur"
                 alt="Chef Picture"
@@ -99,6 +99,7 @@ const ChefRecipes = () => {
                   <div className="flex-grow">
                     <span className="text-base mr-2">Rating: {sr?.rating}</span>
                     <Rating
+                      readonly
                       className="text-warning text-base"
                       placeholderRating={sr?.rating}
                       emptySymbol={<FaStarHalfAlt></FaStarHalfAlt>}
@@ -123,5 +124,5 @@ const ChefRecipes = () => {
     </>
   );
 };
-
+// probirghosh.ph@gmail.com
 export default ChefRecipes;

@@ -14,7 +14,6 @@ const Login = () => {
   console.log(user);
 
   const from = location.state?.from?.pathname || "/";
-  console.log(from);
 
   const handleForm = (event) => {
     event.preventDefault();

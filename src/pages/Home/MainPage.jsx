@@ -40,7 +40,7 @@ const MainPage = () => {
       >
         {sliderData?.map((sd) => (
           <SwiperSlide className="h-[100vh-160px]" key={sd?.id}>
-            <section className="grid lg:grid-cols-2 xl:grid-cols-3">
+            <section className="lg:grid lg:grid-cols-3 xl:grid-cols-3">
               <div className="px-4 py-10 lg:py-0 flex flex-col justify-center bg-red-100">
                 <h2 className="text-4xl sm:text-5xl md:text-7xl text-black tracking-tighter font-bold">
                   {sd?.slider_title}
@@ -76,16 +76,18 @@ const MainPage = () => {
           {sliderData?.map((sd) => (
             <div
               key={sd?.id}
-              className="card border card-compact w-full bg-base-100 shadow-xl"
+              className="card border border-[#fb824a4f] card-compact w-full bg-base-100 shadow-xl"
             >
-              <figure className="h-60">
-                <LazyLoadImage
-                  className="w-full"
-                  src={sd?.chef_picture}
-                  effect="blur"
-                  alt="Chef img"
-                />
-              </figure>
+              <div>
+                <figure className="h-full  ">
+                  <LazyLoadImage
+                    className="rounded-t-2xl"
+                    src={sd?.chef_picture}
+                    effect="blur"
+                    alt="Chef img"
+                  />
+                </figure>
+              </div>
               <div className="card-body">
                 <h2 className="card-title">Mr. {sd?.chef_name}</h2>
                 <div className="flex flex-col gap-3 sm:gap-0 sm:flex-row border py-2 items-center justify-center ">
