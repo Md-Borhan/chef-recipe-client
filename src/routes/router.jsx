@@ -5,11 +5,14 @@ import Register from "../pages/Register/Register";
 import MainPage from "../pages/Home/MainPage";
 import ChefRecipes from "../pages/ChefRecipes/ChefRecipes";
 import Loader from "../pages/loader/Loader";
+import Blog from "../pages/Blog/Blog";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/login",
@@ -36,6 +39,10 @@ const router = createBrowserRouter([
           fetch(
             `https://assignment-10-server-md-borhan.vercel.app/recipes/${params.id}`
           ),
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
     ],
   },

@@ -8,3 +8,14 @@
 .active {
   @apply font-extrabold text-blue-600;
 }
+.errorPage {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.616),
+      rgba(255, 255, 255, 0.685)
+    ),
+    url("../src/assets/error-page.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+}

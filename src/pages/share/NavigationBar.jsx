@@ -25,30 +25,30 @@ const NavigationBar = () => {
         </Link>
       </div>
       <ul className="flex items-center gap-7">
-        <li className="text-[#FB834A] font-medium">
+        <li className="text-[#FB834A] text-lg font-medium">
           <ActiveLink to="/">Home</ActiveLink>
         </li>
-        <li className="text-[#FB834A] font-medium">
+        <li className="text-[#FB834A] text-lg font-medium">
           <ActiveLink to="/blog">Blog</ActiveLink>
         </li>
-        <li className="text-[#FB834A] font-medium">
+        <li className="text-[#FB834A] text-lg font-medium">
           {user ? (
-            <Link onClick={handleLogout}>Logout</Link>
+            <ActiveLink onClick={handleLogout}>Logout</ActiveLink>
           ) : (
-            <Link to="/login">Login</Link>
+            <ActiveLink to="/login">Login</ActiveLink>
           )}
         </li>
         <li className="text-[#FB834A] font-medium">
-          <Link>
+          <ActiveLink>
             {user && (
               <img
                 title={user?.displayName}
-                className="h-16 w-16 rounded-full border-[#FB834A] border"
+                className="h-16 w-16 rounded-full shadow-blue-200 shadow-md border-[#FB834A] border"
                 src={user?.photoURL}
                 alt=" User Img 👤"
               />
             )}
-          </Link>
+          </ActiveLink>
         </li>
       </ul>
     </div>

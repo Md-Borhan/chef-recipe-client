@@ -94,10 +94,10 @@ const Login = () => {
             </button>
           </div>
         </form>
-        <div className="text-center">
+        <div className="flex justify-between">
           <button
             onClick={handleGoogleLogin}
-            className="flex w-full btn btn-error shadow-blue-200 shadow-md items-center font-semibold  justify-center border border-red-400 rounded-lg mt-5 gap-1 text-black py-3"
+            className="flex mb-4  btn btn-error bg-transparent items-center shadow-blue-200 shadow-md font-semibold  justify-center border border-red-400 rounded-full mt-5 gap-1 text-black py-3"
           >
             <span>Login With Google</span>
             <span className="text-lg">
@@ -106,20 +106,20 @@ const Login = () => {
           </button>
           <button
             onClick={handleGithubLogin}
-            className="flex mb-4 w-full btn btn-error items-center shadow-blue-200 shadow-md font-semibold  justify-center border border-red-400 rounded-lg mt-5 gap-1 text-black py-3"
+            className="flex mb-4  btn btn-error bg-transparent items-center shadow-blue-200 shadow-md font-semibold  justify-center border border-red-400 rounded-full mt-5 gap-1 text-black py-3"
           >
             <span>Login With Github</span>
             <span className="text-xl">
               <FaGithub></FaGithub>
             </span>
           </button>
-          <p>
-            Don't have account?{" "}
-            <Link className="text-primary underline" to="/register">
-              Create
-            </Link>
-          </p>
         </div>
+        <p className="text-center">
+          Don't have account?{" "}
+          <Link className="text-primary underline" to="/register">
+            Create
+          </Link>
+        </p>
       </div>
     </div>
   );

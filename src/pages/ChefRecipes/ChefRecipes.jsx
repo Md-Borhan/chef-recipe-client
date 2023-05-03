@@ -27,7 +27,7 @@ const ChefRecipes = () => {
         <div className="w-4/5 mx-auto">
           <div className="flex flex-col items-center py-10 justify-center">
             <img
-              className="w-64 h-64 mb-5 rounded-full"
+              className="w-64 h-64 mb-5 rounded-full  shadow-blue-300 shadow-md"
               src={chef_picture}
               alt=""
             />
