@@ -5,6 +5,8 @@ import { GiEternalLove } from "react-icons/gi";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 import Rating from "react-rating";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const ChefRecipes = () => {
   const recipes = useLoaderData();
@@ -28,11 +30,14 @@ const ChefRecipes = () => {
       <section className="recipesBanner">
         <div className="w-full md:w-4/5 mx-auto">
           <div className="flex flex-col items-center py-10 justify-center">
-            <img
-              className="w-64 h-64 mb-5 rounded-full  shadow-blue-300 shadow-md"
-              src={chef_picture}
-              alt=""
-            />
+            <div>
+              <LazyLoadImage
+                className="w-64 h-64 mb-5 rounded-full  shadow-blue-300 shadow-md"
+                src={chef_picture}
+                effect="blur"
+                alt="Chef Picture"
+              />
+            </div>
             <div className="w-full lg:w-3/5 xl:w-3/5 2xl:w-1/2 px-3 lg:px-0 mx-auto text-center">
               <p className="text-5xl font-bold text-white">I'am {chef_name}</p>
               <p className="text-lg mt-2 text-white">{bio}</p>
@@ -57,11 +62,12 @@ const ChefRecipes = () => {
             key={sr?.id}
             className="card border card-compact w-full bg-base-100 shadow-xl"
           >
-            <figure>
-              <img
-                className="w-full h-60"
+            <figure className="h-60">
+              <LazyLoadImage
+                className="w-full"
                 src={sr?.recipe_img}
-                alt="Chef img"
+                effect="blur"
+                alt="Chef Picture"
               />
             </figure>
             <div className="card-body">

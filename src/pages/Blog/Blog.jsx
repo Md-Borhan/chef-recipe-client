@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
+import Pdf from "react-to-pdf";
 
 const Blog = () => {
+  const ref = useRef();
   return (
     <div className="w-full md:w-4/5 lg:w-2/3 xl:1/2 px-3 md:px-0 mx-auto my-14 ">
       <h2 className="text-center text-4xl mb-8 sm:text-5xl lg:text-7xl text-black tracking-tighter font-bold">
         Our Blogs
       </h2>
-      <div className="">
+      <div ref={ref}>
         <div className="mb-5 p-5 shadow-md border rounded-md shadow-blue-200">
           <h3 className="text-2xl md:text-3xl text-black mb-2">
             Tell us the differences between uncontrolled and controlled
@@ -70,6 +72,15 @@ const Blog = () => {
             easier to maintain.
           </p>
         </div>
+      </div>
+      <div className="text-center ">
+        <Pdf targetRef={ref} filename="code-example.pdf">
+          {({ toPdf }) => (
+            <button className="btn btn-error text-white" onClick={toPdf}>
+              Generate Pdf
+            </button>
+          )}
+        </Pdf>
       </div>
     </div>
   );

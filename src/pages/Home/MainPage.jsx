@@ -10,6 +10,8 @@ import chefClassIcon from "../../assets/chef-class-icon.png";
 import achievementImg from "../../assets/achievement-img.jpg";
 import { FaAward, FaAngellist, FaPiedPiperAlt } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const MainPage = () => {
   const sliderData = useLoaderData();
@@ -37,7 +39,7 @@ const MainPage = () => {
         className="mySwiper"
       >
         {sliderData?.map((sd) => (
-          <SwiperSlide className="" key={sd?.id}>
+          <SwiperSlide className="h-[100vh-160px]" key={sd?.id}>
             <section className="grid lg:grid-cols-2 xl:grid-cols-3">
               <div className="px-4 py-10 lg:py-0 flex flex-col justify-center bg-red-100">
                 <h2 className="text-4xl sm:text-5xl md:text-7xl text-black tracking-tighter font-bold">
@@ -46,7 +48,11 @@ const MainPage = () => {
                 <p className="text-xl mt-1 text-[#FB834A]">{sd?.slider_desc}</p>
               </div>
               <div className="sliderImg col-span-2">
-                <img src={sd?.slider_img} alt="" />
+                <LazyLoadImage
+                  src={sd?.slider_img}
+                  effect="blur"
+                  alt="Slider Image"
+                />
               </div>
             </section>
           </SwiperSlide>
@@ -72,10 +78,11 @@ const MainPage = () => {
               key={sd?.id}
               className="card border card-compact w-full bg-base-100 shadow-xl"
             >
-              <figure>
-                <img
-                  className="w-full h-60"
+              <figure className="h-60">
+                <LazyLoadImage
+                  className="w-full"
                   src={sd?.chef_picture}
+                  effect="blur"
                   alt="Chef img"
                 />
               </figure>
@@ -118,7 +125,11 @@ const MainPage = () => {
         </div>
         <div className="grid md:grid-cols-2 items-center gap-8">
           <div>
-            <img src={achievementImg} alt="Recipe Maker Img" />
+            <LazyLoadImage
+              src={achievementImg}
+              effect="blur"
+              alt="Recipe Maker Img"
+            />
           </div>
           <div className="pr-5">
             <div className="hidden lg:block">
@@ -180,7 +191,12 @@ const MainPage = () => {
           <h2 className="text-center my-4 text-4xl sm:text-5xl lg:text-7xl text-black tracking-tighter font-bold">
             Our Cooking Classes
           </h2>
-          <img className="mx-auto mb-8" src={chefClassIcon} alt="" />
+          <LazyLoadImage
+            className="mx-auto mb-8"
+            src={chefClassIcon}
+            effect="blur"
+            alt="Icon"
+          />
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 w-4/5 mx-auto gap-5">
           {sliderData.slice(3)?.map((sd) => (
@@ -189,11 +205,11 @@ const MainPage = () => {
               className="card card-compact mb-0 w-full bg-base-100 shadow-xl"
             >
               <div className="relative ">
-                <figure>
-                  <img
-                    className="w-full h-60"
+                <figure className="w-full h-60">
+                  <LazyLoadImage
                     src={sd?.chef_class_picture}
-                    alt="Chef img"
+                    effect="blur"
+                    alt="Recipe Maker Img"
                   />
                 </figure>
                 <h2 className=" mb-0 absolute bottom-0 w-full text-white text-xl pl-4 py-3 bg-[rgba(251,130,74,0.85)]">
