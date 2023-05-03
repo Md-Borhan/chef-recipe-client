@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import "./chefRecipes.css";
 import { GiEternalLove } from "react-icons/gi";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
+import Rating from "react-rating";
 
 const ChefRecipes = () => {
   const recipes = useLoaderData();
@@ -87,8 +89,17 @@ const ChefRecipes = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="flex mt-5 justify-between items-center">
-                  <span className="text-base">Rating: {sr?.rating}</span>
+                <div className="flex mt-5 items-center ">
+                  <div className="flex-grow">
+                    <span className="text-base mr-2">Rating: {sr?.rating}</span>
+                    <Rating
+                      className="text-warning text-base"
+                      placeholderRating={sr?.rating}
+                      emptySymbol={<FaStarHalfAlt></FaStarHalfAlt>}
+                      placeholderSymbol={<FaStar></FaStar>}
+                      fullSymbol={<FaStar></FaStar>}
+                    />
+                  </div>
                   <button
                     onClick={handleFavoriteBtn}
                     className="btn btn-error text-white"
