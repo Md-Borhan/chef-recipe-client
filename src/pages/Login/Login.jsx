@@ -10,10 +10,10 @@ const Login = () => {
     useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+  const emailRef = useRef(null);
   const [errorText, setErrorText] = useState("");
   const [successText, setSuccessText] = useState("");
-  const [user, setUser] = useState(null);
-  const emailRef = useRef(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -27,9 +27,7 @@ const Login = () => {
     setSuccessText("");
 
     loginWithEmail(email, password)
-      .then((result) => {
-        const loggedUser = result.user;
-        setUser(loggedUser);
+      .then(() => {
         setSuccessText("😃 User login success!!!");
         form.reset();
         navigate(from, { replace: true });

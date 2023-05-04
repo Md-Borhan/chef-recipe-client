@@ -1,14 +1,11 @@
 import React, { useContext, useState } from "react";
-import { FaGoogle, FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
   const { createUserWithEmail, updateUserProfile } = useContext(AuthContext);
-
   const [successText, setSuccessText] = useState("");
   const [errorText, setErrorText] = useState("");
-
   const handleForm = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -66,7 +63,7 @@ const Register = () => {
                 <span className="label-text">Email</span>
               </label>
               <input
-                type="text"
+                type="email"
                 name="email"
                 required
                 placeholder="email"

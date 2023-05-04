@@ -1,8 +1,13 @@
 import React, { useRef } from "react";
-import Pdf from "react-to-pdf";
+import ReactToPdf from "react-to-pdf";
 
 const Blog = () => {
   const ref = useRef();
+  const options = {
+    orientation: "landscape",
+    unit: "in",
+    format: [6, 6],
+  };
   return (
     <div className="w-full md:w-4/5 lg:w-2/3 xl:1/2 px-3 md:px-0 mx-auto my-14 ">
       <h2 className="text-center text-4xl mb-8 sm:text-5xl lg:text-7xl text-black tracking-tighter font-bold">
@@ -74,13 +79,20 @@ const Blog = () => {
         </div>
       </div>
       <div className="text-center ">
-        <Pdf targetRef={ref} filename="code-example.pdf">
+        <ReactToPdf
+          targetRef={ref}
+          filename="code-example.pdf"
+          options={options}
+          x={0.5}
+          y={0.5}
+          scale={0.5}
+        >
           {({ toPdf }) => (
             <button className="btn btn-error text-white" onClick={toPdf}>
               Generate Pdf
             </button>
           )}
-        </Pdf>
+        </ReactToPdf>
       </div>
     </div>
   );
