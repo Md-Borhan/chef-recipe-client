@@ -8,6 +8,7 @@ import Loader from "../pages/loader/Loader";
 import Blog from "../pages/Blog/Blog";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import UserDetailsPage from "../pages/share/UserDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
+      },
+      {
+        path: "/userDetails",
+        element: <UserDetailsPage></UserDetailsPage>,
       },
     ],
   },

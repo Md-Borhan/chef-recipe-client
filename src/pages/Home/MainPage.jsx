@@ -35,11 +35,11 @@ const MainPage = () => {
         pagination={{
           clickable: true,
         }}
-        modules={[Keyboard, Pagination]}
+        modules={[Keyboard, Pagination, Autoplay]}
         className="mySwiper"
       >
         {sliderData?.map((sd) => (
-          <SwiperSlide className="h-[100vh-160px]" key={sd?.id}>
+          <SwiperSlide className="h-[100vh-160px] bg-red-100" key={sd?.id}>
             <section className="lg:grid lg:grid-cols-3 xl:grid-cols-3">
               <div className="px-4 py-10 lg:py-0 flex flex-col justify-center bg-red-100">
                 <h2 className="text-4xl sm:text-5xl md:text-7xl text-black tracking-tighter font-bold">

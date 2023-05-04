@@ -2,16 +2,18 @@ import React, { useContext, useState } from "react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import { useRef } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
-  const { loginWithEmail, loginWithGoogle, loginWithGithub } =
+  const { loginWithEmail, loginWithGoogle, loginWithGithub, resetPassword } =
     useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const [errorText, setErrorText] = useState("");
   const [successText, setSuccessText] = useState("");
   const [user, setUser] = useState(null);
-  console.log(user);
+  const emailRef = useRef(null);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -59,6 +61,28 @@ const Login = () => {
         setErrorText(error.message);
       });
   };
+
+  const handleResetPass = () => {
+    const email = emailRef.current.value;
+    resetPassword(email)
+      .then(() => {
+        toast.success("Look at your email.", {
+          style: {
+            border: "1px solid #713200",
+            padding: "16px",
+            color: "#713200",
+          },
+          iconTheme: {
+            primary: "#713200",
+            secondary: "#FFFAEE",
+          },
+        });
+      })
+      .catch((error) => {
+        setErrorText(error.message);
+      });
+  };
+
   return (
     <div className="px-3">
       <div className="w-full sm:w-4/5  md:w-3/5 xl:w-2/5 2xl:w-1/3 sm:mx-auto bg-gray-200  my-5 rounded-lg shadow-blue-100 shadow-md">
@@ -70,7 +94,8 @@ const Login = () => {
                 <span className="label-text">Email</span>
               </label>
               <input
-                type="text"
+                type="email"
+                ref={emailRef}
                 name="email"
                 required
                 placeholder="email"
@@ -89,6 +114,15 @@ const Login = () => {
                 className="input shadow-blue-200 shadow-md input-bordered"
               />
             </div>
+            <label className="label">
+              <a
+                href="#"
+                onClick={handleResetPass}
+                className="label-text-alt link link-hover"
+              >
+                Forgot password?
+              </a>
+            </label>
             <p className="text-success">{successText}</p>
             <p className="text-error">{errorText}</p>
             <div className="form-control mt-4">
@@ -125,6 +159,7 @@ const Login = () => {
           </p>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };

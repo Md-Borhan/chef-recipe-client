@@ -13,6 +13,7 @@ const NavigationBar = () => {
         console.log(error.message);
       });
   };
+
   return (
     <nav className="flex flex-col sm:flex-row items-center justify-center sm:justify-between bg-slate-900 py-4 shadow-lg px-5 md:px-10 lg:px-16 xl:px-20">
       <div>
@@ -39,12 +40,15 @@ const NavigationBar = () => {
         </li>
         <li className="text-[#FB834A] font-medium">
           {user && (
-            <img
-              title={user?.displayName}
-              className="h-16 w-16 rounded-full shadow-blue-200 shadow-md border-[#FB834A] border"
-              src={user?.photoURL}
-              alt=" User Img 👤"
-            />
+            <Link to="userDetails">
+              {" "}
+              <img
+                title={user?.displayName}
+                className="h-16 w-16 rounded-full shadow-blue-200 shadow-md border-[#FB834A] border"
+                src={user?.photoURL}
+                alt=" User Img 👤"
+              />
+            </Link>
           )}
         </li>
       </ul>
